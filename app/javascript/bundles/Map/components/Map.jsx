@@ -30,9 +30,9 @@ export default class Map extends React.Component {
                           position.coords.longitude,
                           position.coords.latitude
                         ];
-          document.getElementById("long")
+          document.getElementById("place_longitude")
                   .innerHTML = coordinates[0];
-          document.getElementById("lat")
+          document.getElementById("place_latitude")
                   .innerHTML = coordinates[1];
           mapOptions.center = coordinates;
           this.createMap(mapOptions, geolocationOptions);
@@ -79,12 +79,12 @@ export default class Map extends React.Component {
             .addTo(map);
       });
       map.on('mouseenter', 'places', () => {
-        map.getCanvas().style.cursor = 'pointer';
+          map.getCanvas().style.cursor = 'pointer';
       });
       map.on('mouseleave', 'places', () => {
         map.getCanvas().style.cursor = '';
       });
-      map.on('moveend', () => { this.fetchPlaces() });
+      map.on('moveend', (e) => { this.fetchPlaces() });
     });
   }
  
