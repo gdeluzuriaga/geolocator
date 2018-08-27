@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+ 
 <p>
   You are calling from
   <span id="long"><%= @coordinates.first %></span>,
@@ -5,4 +7,7 @@
 </p>
  
 <%= react_component 'Map',
-    props: { coordinates: @coordinates} %>
+    props: { coordinates: @coordinates, centerOnUser: true} %>
+ 
+<hr>
+<%= render 'form', place: @place %>
